@@ -1,0 +1,174 @@
+INSERT INTO productos (producto_id, nombre_producto, categoria) VALUES
+(1, 'Tarjeta de Débito', 'Tarjeta'),
+(2, 'Tarjeta de Crédito Visa', 'Tarjeta'),
+(3, 'Tarjeta de Crédito MasterCard', 'Tarjeta'),
+(4, 'Préstamo Personal', 'Prestamo'),
+(5, 'Plazo Fijo', 'Inversion'),
+(6, 'Fondo Común de Inversión', 'Inversion'),
+(7, 'Caja de Seguridad', 'Servicio'),
+(8, 'Seguro de Vida', 'Servicio');
+
+INSERT INTO clientes (cliente_id, nombre, edad, ciudad, segmento, fecha_alta) VALUES
+(1, 'Juan Perez', 34, 'Buenos Aires', 'Retail', '2019-03-15'),
+(2, 'Maria Gonzalez', 41, 'Córdoba', 'Premium', '2018-07-22'),
+(3, 'Carlos Fernandez', 29, 'Rosario', 'Retail', '2021-01-10'),
+(4, 'Lucia Martinez', 37, 'Buenos Aires', 'Premium', '2017-11-05'),
+(5, 'Diego Lopez', 45, 'Mendoza', 'Retail', '2016-06-30'),
+(6, 'Sofia Ramirez', 32, 'La Plata', 'Retail', '2020-09-18'),
+(7, 'Martin Alvarez', 50, 'Buenos Aires', 'Premium', '2015-04-12'),
+(8, 'Valeria Torres', 27, 'Mar del Plata', 'Retail', '2022-02-08'),
+(9, 'Pablo Romero', 39, 'Córdoba', 'Premium', '2019-12-01'),
+(10, 'Ana Suarez', 46, 'Santa Fe', 'Retail', '2016-10-20'),
+(11, 'Federico Molina', 35, 'Buenos Aires', 'Retail', '2020-05-14'),
+(12, 'Carolina Diaz', 42, 'Rosario', 'Premium', '2018-03-27'),
+(13, 'Gustavo Herrera', 55, 'Salta', 'Premium', '2014-08-19'),
+(14, 'Natalia Cruz', 31, 'Neuquén', 'Retail', '2021-06-02'),
+(15, 'Leonardo Silva', 48, 'Buenos Aires', 'Premium', '2016-01-11');
+
+
+INSERT INTO cuentas (cuenta_id, cliente_id, tipo_cuenta, saldo_actual, fecha_apertura) VALUES
+(1, 1, 'Caja Ahorro', 250000.50, '2019-03-20'),
+(2, 1, 'Cuenta Corriente', 180000.00, '2020-06-15'),
+(3, 2, 'Caja Ahorro', 950000.75, '2018-07-25'),
+(4, 2, 'Cuenta Corriente', 1200000.00, '2019-02-10'),
+(5, 3, 'Caja Ahorro', 110000.00, '2021-01-15'),
+(6, 4, 'Caja Ahorro', 780000.40, '2017-11-10'),
+(7, 4, 'Cuenta Corriente', 650000.00, '2018-05-05'),
+(8, 5, 'Caja Ahorro', 320000.20, '2016-07-01'),
+(9, 6, 'Caja Ahorro', 150000.00, '2020-09-20'),
+(10, 7, 'Caja Ahorro', 1400000.00, '2015-04-15'),
+(11, 7, 'Cuenta Corriente', 2100000.00, '2016-08-18'),
+(12, 8, 'Caja Ahorro', 90000.00, '2022-02-10'),
+(13, 9, 'Caja Ahorro', 560000.30, '2019-12-05'),
+(14, 9, 'Cuenta Corriente', 730000.00, '2020-01-20'),
+(15, 10, 'Caja Ahorro', 200000.00, '2016-10-25'),
+(16, 11, 'Caja Ahorro', 275000.90, '2020-05-20'),
+(17, 12, 'Caja Ahorro', 890000.00, '2018-04-01'),
+(18, 12, 'Cuenta Corriente', 950000.00, '2019-09-12'),
+(19, 13, 'Caja Ahorro', 1800000.00, '2014-08-25'),
+(20, 13, 'Cuenta Corriente', 2500000.00, '2015-03-30'),
+(21, 14, 'Caja Ahorro', 130000.00, '2021-06-10'),
+(22, 15, 'Caja Ahorro', 620000.00, '2016-01-15'),
+(23, 15, 'Cuenta Corriente', 850000.00, '2017-04-20');
+
+
+INSERT INTO clientes_productos (cliente_id, producto_id, fecha_contratacion) VALUES
+-- Cliente 1 (Retail)
+(1, 1, '2019-03-20'),
+(1, 2, '2020-01-10'),
+
+-- Cliente 2 (Premium)
+(2, 1, '2018-07-25'),
+(2, 2, '2018-08-01'),
+(2, 5, '2019-03-15'),
+(2, 6, '2020-06-20'),
+
+-- Cliente 3 (Retail)
+(3, 1, '2021-01-15'),
+
+-- Cliente 4 (Premium)
+(4, 1, '2017-11-10'),
+(4, 3, '2018-02-05'),
+(4, 5, '2019-09-01'),
+
+-- Cliente 5 (Retail)
+(5, 1, '2016-07-01'),
+(5, 4, '2018-05-10'),
+
+-- Cliente 6 (Retail)
+(6, 1, '2020-09-20'),
+
+-- Cliente 7 (Premium)
+(7, 1, '2015-04-15'),
+(7, 2, '2015-06-10'),
+(7, 3, '2016-01-20'),
+(7, 5, '2017-03-30'),
+(7, 6, '2018-11-12'),
+(7, 7, '2019-08-05'),
+
+-- Cliente 8 (Retail)
+(8, 1, '2022-02-10'),
+
+-- Cliente 9 (Premium)
+(9, 1, '2019-12-05'),
+(9, 2, '2020-02-01'),
+(9, 6, '2021-04-18'),
+
+-- Cliente 10 (Retail)
+(10, 1, '2016-10-25'),
+
+-- Cliente 11 (Retail)
+(11, 1, '2020-05-20'),
+(11, 2, '2021-07-15'),
+
+-- Cliente 12 (Premium)
+(12, 1, '2018-04-01'),
+(12, 3, '2018-06-20'),
+(12, 5, '2019-10-10'),
+
+-- Cliente 13 (Premium)
+(13, 1, '2014-08-25'),
+(13, 2, '2014-09-15'),
+(13, 3, '2015-02-10'),
+(13, 5, '2016-05-05'),
+(13, 6, '2017-07-07'),
+(13, 8, '2018-12-01'),
+
+-- Cliente 14 (Retail)
+(14, 1, '2021-06-10'),
+
+-- Cliente 15 (Premium)
+(15, 1, '2016-01-15'),
+(15, 2, '2016-03-01'),
+(15, 6, '2018-08-20');
+
+
+INSERT INTO transacciones (transaccion_id, cuenta_id, fecha, tipo, monto, canal) VALUES
+-- Cuenta 1
+(1, 1, '2023-01-05', 'Deposito', 120000, 'Sucursal'),
+(2, 1, '2023-01-12', 'Pago', 35000, 'Online'),
+(3, 1, '2023-01-20', 'Extraccion', 20000, 'ATM'),
+
+-- Cuenta 2
+(4, 2, '2023-01-07', 'Transferencia', 50000, 'Online'),
+(5, 2, '2023-01-25', 'Pago', 42000, 'Online'),
+
+-- Cuenta 3
+(6, 3, '2023-01-03', 'Deposito', 300000, 'Sucursal'),
+(7, 3, '2023-01-18', 'Transferencia', 150000, 'Online'),
+
+-- Cuenta 4
+(8, 4, '2023-01-10', 'Pago', 95000, 'Online'),
+(9, 4, '2023-01-22', 'Extraccion', 60000, 'ATM'),
+
+-- Cuenta 6
+(10, 6, '2023-01-05', 'Deposito', 200000, 'Sucursal'),
+(11, 6, '2023-01-28', 'Transferencia', 100000, 'Online'),
+
+-- Cuenta 7
+(12, 7, '2023-01-09', 'Pago', 80000, 'Online'),
+(13, 7, '2023-01-30', 'Extraccion', 50000, 'ATM'),
+
+-- Cuenta 10
+(14, 10, '2023-01-04', 'Deposito', 400000, 'Sucursal'),
+(15, 10, '2023-01-21', 'Pago', 120000, 'Online'),
+
+-- Cuenta 11
+(16, 11, '2023-01-06', 'Transferencia', 250000, 'Online'),
+(17, 11, '2023-01-26', 'Extraccion', 100000, 'ATM'),
+
+-- Cuenta 13
+(18, 13, '2023-01-08', 'Deposito', 180000, 'Sucursal'),
+(19, 13, '2023-01-27', 'Pago', 65000, 'Online'),
+
+-- Cuenta 14
+(20, 14, '2023-01-11', 'Transferencia', 90000, 'Online'),
+(21, 14, '2023-01-29', 'Extraccion', 40000, 'ATM'),
+
+-- Cuenta 19
+(22, 19, '2023-01-02', 'Deposito', 500000, 'Sucursal'),
+(23, 19, '2023-01-19', 'Pago', 150000, 'Online'),
+
+-- Cuenta 20
+(24, 20, '2023-01-15', 'Transferencia', 300000, 'Online'),
+(25, 20, '2023-01-31', 'Extraccion', 120000, 'ATM');

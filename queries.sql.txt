@@ -1,0 +1,81 @@
+-- Métricas generales del banco
+
+SELECT COUNT(*) AS total_clientes
+FROM clientes;
+
+SELECT COUNT(*) AS total_cuentas
+FROM cuentas;
+
+SELECT COUNT(*) AS total_transacciones
+FROM transacciones;
+
+-- Análisis por segmento (Retail vs Premium)
+
+SELECT segmento, COUNT(*) AS cantidad_clientes
+FROM clientes
+GROUP BY segmento;
+
+SELECT c.segmento,
+       AVG(cu.saldo_actual) AS saldo_promedio
+FROM clientes c
+JOIN cuentas cu ON c.cliente_id = cu.cliente_id
+GROUP BY c.segmento;
+
+-- Por volumen 
+
+SELECT c.nombre,
+       SUM(t.monto) AS volumen_total
+FROM clientes c
+JOIN cuentas cu ON c.cliente_id = cu.cliente_id
+JOIN transacciones t ON cu.cuenta_id = t.cuenta_id
+GROUP BY c.nombre
+ORDER BY volumen_total DESC;
+
+SELECT c.nombre,
+       SUM(t.monto) AS volumen_total
+FROM clientes c
+JOIN cuentas cu ON c.cliente_id = cu.cliente_id
+JOIN transacciones t ON cu.cuenta_id = t.cuenta_id
+GROUP BY c.nombre
+ORDER BY volumen_total DESC
+LIMIT 5;
+
+-- Uso de canales
+SELECT canal,
+       COUNT(*) AS cantidad_transacciones
+FROM transacciones
+GROUP BY canal
+ORDER BY cantidad_transacciones DESC;
+
+SELECT canal,
+       SUM(monto) AS monto_total
+FROM transacciones
+GROUP BY canal
+ORDER BY monto_total DESC;
+
+
+SELECT c.nombre,
+       COUNT(cp.producto_id) AS cantidad_productos
+FROM clientes c
+JOIN clientes_productos cp ON c.cliente_id = cp.cliente_id
+GROUP BY c.nombre
+ORDER BY cantidad_productos DESC;
+
+-- CLientes premiun sin productos
+
+SELECT DISTINCT c.nombre
+FROM clientes c
+LEFT JOIN clientes_productos cp ON c.cliente_id = cp.cliente_id
+LEFT JOIN productos p
+       ON cp.producto_id = p.producto_id
+       AND p.categoria = 'Inversion'
+WHERE c.segmento = 'Premium'
+  AND p.producto_id IS NULL;
+
+SELECT c.nombre,
+       SUM(t.monto) AS volumen_total
+FROM clientes c
+JOIN cuentas cu ON c.cliente_id = cu.cliente_id
+JOIN transacciones t ON cu.cuenta_id = t.cuenta_id
+GROUP BY c.cliente_id, c.nombre
+ORDER BY volumen_total DESC;
